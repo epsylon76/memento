@@ -3,3 +3,8 @@
  	<?php else : ?>
  		<div class="post col-md-4">
  	<?php endif; ?>
+  
+  
+  $html= <<<EOF
+blahblah
+EOF;
