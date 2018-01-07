@@ -1,31 +1,3 @@
-sauvdbs.sh
-DÉTAILS
-ACTIVITÉ
-Informations de partage
-Non partagé
-Informations générales
-Type
-Texte
-Taille
-1 Ko (1 463 octets)
-Espace de stockage utilisé
-1 Ko (1 463 octets)
-Emplacement
-backup
-Propriétaire
-moi
-Modifié
-le 30 juin 2017 par moi
-Ouvert
-le 12:50 par moi
-Créé le
-30 juin 2017
-Description
-Ajouter une description
-Autorisations de téléchargement
-Les lecteurs peuvent télécharger
-
-
 #!/bin/bash
 
 ##################################################
