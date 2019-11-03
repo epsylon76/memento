@@ -10,20 +10,18 @@
 ##############################################
 
 #Utilisateur MySQL
-MUSER="root"   
-#pass MySQL                                                 
-MPASS="androm3deM31"
-#hote MySQL                                           
+MUSER="epsy"
+#pass MySQL
+MPASS="alpha"
+#hote MySQL
 MHOST="localhost"
-#Dossier à sauvergarder (dossier dans lequel les sites sont placés)
-DIRSITES="/var/www/"
 
 ##############################################
 # dossiers temporaires crées (laissez comme ça, ou pas)
 ##############################################
 
 #Dossier de sauvegarde temporaire des dumps sql
-DIRSAVESQL="/var/www/html/backup/sql"
+DIRSAVESQL="/var/www/html/config/backup/"
 
 
 ##############################################
@@ -33,8 +31,7 @@ MYSQL="$(which mysql)"
 MYSQLDUMP="$(which mysqldump)"
 GZIP="$(which gzip)"
 TAR="$(which tar)"
-DBS="$(mysql -u $MUSER -h $MHOST -p$MPASS -Bse 'SHOW DATABASES')"
-DATE_FORMAT=`date +%Y-%m-%d`  
+DATE_FORMAT=`date +%Y-%m-%d`
 
 
 if [ ! -d $DIRSAVESQL ]; then
@@ -43,15 +40,9 @@ else
  :
 fi
 
-echo "Sauvegarde des bases de données :"
-for db in $DBS
-do
-    echo "Database : $db"
-        FILE=$DIRSAVESQL/mysql-$db-$DATE_FORMAT.gz
-        `$MYSQLDUMP -u $MUSER -h $MHOST -p$MPASS $db | $GZIP -9 > $FILE`
-done
+#FAIRE CES DEUX LIGNES POUR CHAQUE DATABASE
+FILE=$DIRSAVESQL/$db-$DATE_FORMAT.gz
+`$MYSQLDUMP -u $MUSER -h $MHOST -p$MPASS 'RSG' | $GZIP -9 > $FILE`
 
 find $DIRSAVESQL/* -mtime +10 -type f -delete
-
-
 
